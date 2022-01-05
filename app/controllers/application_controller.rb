@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :cart_subtotal_cents
 
-
   def update_cart(new_cart)
     cookies[:cart] = {
       value: JSON.generate(new_cart),
@@ -28,5 +27,11 @@ class ApplicationController < ActionController::Base
     }
     cookies[:cart]
   end
+
+  # Save user object to be used in views, if user is logged in
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  helper_method :current_user
 
 end
