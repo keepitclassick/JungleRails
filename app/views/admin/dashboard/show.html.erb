@@ -1,4 +1,12 @@
 <h1>Admin Dashboard</h1>
 
-<%= @product_count %>
-<%= @category_count %>
+<table class="table table-bordered h4">
+  <tr>
+    <td class="primary">Number of products in the store</td> 
+    <td class="info"><%= @product_count %></td> 
+  </tr>
+  <tr>
+    <td class="primary">Number of categories in the store</td> 
+    <td class="info"><%= @category_count %></td> 
+  </tr>
+</table>
