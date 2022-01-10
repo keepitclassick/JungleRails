@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  subject {
+    described_class.new(
+      first_name: "Berk", 
+      last_name: "Ozer", 
+      email: "berk@gmail.com", 
+      password: "secret", 
+      password_confirmation: "secret"
+    )
+  }
 
   describe "Validations" do
     it "is valid with valid attributes" do
@@ -83,6 +92,13 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
       expect(user.errors.full_messages).to be_empty
     end
+  end
 
+  describe '.authenticate_with_credentials' do
+    it "authenticates when credentials are valid" do
+      subject.save!
+      auth = User.authenticate_with_credentials(subject.email, subject.password)
+      expect(auth).to eq subject
+    end
   end
 end
