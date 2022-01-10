@@ -56,11 +56,32 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors.full_messages).to include ("Password can't be blank")
     end
-    
+
     it "is not valid without pasword confirmation" do
       subject.password_confirmation = nil
       expect(subject).to_not be_valid
       expect(subject.errors.full_messages).to include ("Password confirmation can't be blank")
+    end
+
+    it "is not valid when password is shorter than 5 characters" do
+      subject.password = "abcd"
+      subject.password_confirmation = "abcd"
+      expect(subject).to_not be_valid
+      expect(subject.errors.full_messages).to include ("Password is too short (minimum is 5 characters)")
+    end
+
+    it "is valid when password is exactly 5 characters" do
+
+      user = User.create( 
+        first_name: "John", 
+        last_name: "Wick",
+        email: "justwickit@example.com", 
+        password: "secre", 
+        password_confirmation: "secre"
+      )
+    
+      expect(user).to be_valid
+      expect(user.errors.full_messages).to be_empty
     end
 
   end
