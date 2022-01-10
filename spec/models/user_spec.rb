@@ -34,5 +34,16 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages).to include ("First name can't be blank")
     end
 
+    it "is not valid without last name" do
+      user = User.create( 
+        first_name: "John", 
+        email: "justwickit@example.com", 
+        password: "secret", 
+        password_confirmation: "secret"
+      )
+      expect(user).to_not be_valid
+      expect(user.errors.full_messages).to include ("Last name can't be blank")
+    end
+
   end
 end
