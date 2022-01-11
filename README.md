@@ -18,6 +18,9 @@ Checkout
 Users can complete their purchase using Stripe, and see the details of their order.
 
 ------------------------------------------
+Home Page
+![Home Page with Logged in User](https://raw.githubusercontent.com/keepitclassick/JungleRails/0c7ed9a2e285fba819be1a1da82148563bd7f15c/public/C42F2F05-BABE-4D25-8EE6-9D3362533322_1_105_c.jpeg)
+
 
 ## Additional Steps for Apple M1 Machines
 
