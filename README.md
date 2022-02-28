@@ -4,17 +4,17 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 # Features 
 
-Signup/Login implemented using bcrypt with Rails.
+## Signup/Login implemented using bcrypt with Rails.
 
-Admin Privileges
+## Admin Privileges
 Authenticated admins can add/edit/delete products and categories.
 
-Product Selection
+## Product Selection
 Users can browse and add products to cart directly from the home page.
 
 Products can also be seen in their individual pages, or under their respective categories.
 
-Checkout
+## Checkout
 Users can complete their purchase using Stripe, and see the details of their order.
 
 ------------------------------------------
